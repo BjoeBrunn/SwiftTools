@@ -3,7 +3,7 @@ struct ThreadSafe<T> {
     private var value: T
     private let queue: DispatchQueue
     
-    init(wrappedValue value:T, queue:DispatchQueue = DispatchQueue(label: "BBThreadSafe")) {
+    init(wrappedValue value:T, queue:DispatchQueue = DispatchQueue(label: "BBThreadSafe", attributes: .concurrent)) {
         self.value = value
         self.queue = queue
     }
